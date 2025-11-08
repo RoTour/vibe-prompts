@@ -41,7 +41,7 @@ Given the file content for a domain repository interface (e.g., `I[AggregateName
 
    **3.2. Repository Class:**
    - The class must implement the `I[AggregateName]Repository` interface.
-   - **Constructor:** It must accept an optional `Prisma.TransactionClient` for dependency injection, defaulting to a global `prisma` client imported from `$lib/server/prisma/prisma`. This ensures testability.
+   - **Constructor:** It must accept a `Prisma.PrismaClient` for dependency injection. No default value shoud be provided. This ensures testability.
    - **`save` method:**
      - It must use `this.prisma.[aggregateName].upsert` to handle both creation and updates in a single, atomic operation.
      - The `where` clause must use the aggregate's ID.
